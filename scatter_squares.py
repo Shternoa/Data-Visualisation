@@ -1,10 +1,9 @@
 import matplotlib.pyplot as plt
 
-input_values = [1, 2, 3, 4, 5]
-squares = [1, 4, 9, 16, 25]
-plt.plot(input_values, squares, linewidth=5)
+x_points = [1, 2, 3, 4, 5]
+y_points = [2, 4, 9, 16, 26]
+plt.scatter(x_points, y_points, s=50)
 
-# Заголовок программы и метка осей
 plt.title("Square numbers", fontsize=24)
 plt.xlabel("Value", fontsize=14)
 plt.ylabel("Square Value", fontsize=14)
