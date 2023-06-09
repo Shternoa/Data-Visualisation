@@ -8,6 +8,8 @@ while True:
     # Построенеи случайного блуждания с нанесением точек на диаграмму
     rw = RandomWalk(50000)
     rw.fill_walk()
+    # Область просмотра
+    plt.figure(dpi=128, figsize=(10, 6))
     point_numbers_list = list(range(rw.num_points))
     plt.scatter(rw.x_point, rw.y_point, c=point_numbers_list, cmap=plt.cm.Greens, edgecolors='none', s=1)
 
