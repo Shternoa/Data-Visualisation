@@ -14,15 +14,8 @@ class RandomWalk():
     def fill_walk(self):
         """Вычесление всех точек блуждения"""
         while len(self.x_point) < self.num_points:
-            # Определение направления и длинны перемещения
-            x_direction = choice([1, -1])
-            x_distance = choice([0, 1, 2, 3, 4])
-            x_step = x_direction * x_distance
-
-            y_direction = choice([1, -1])
-            y_distance = choice([0, 1, 2, 3, 4])
-            y_step = y_direction * y_distance
-
+            x_step = self.get_step()
+            y_step = self.get_step()
             # Отклонение от 0 в перемещении
             if x_step == 0 and y_step == 0:
                 continue
@@ -33,3 +26,10 @@ class RandomWalk():
 
             self.x_point.append(next_x)
             self.y_point.append(next_y)
+
+    def get_step(self):
+        # Определение направления и длинны перемещения
+        direction = choice([1, -1])
+        distance = choice([0, 1, 2, 3, 4, 5, 6, 7, 8])
+        step = direction * distance
+        return step
