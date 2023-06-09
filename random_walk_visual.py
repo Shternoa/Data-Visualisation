@@ -8,7 +8,8 @@ while True:
     # Построенеи случайного блуждания с нанесением точек на диаграмму
     rw = RandomWalk()
     rw.fill_walk()
-    plt.scatter(rw.x_point, rw.y_point, s=20)
+    point_numbers_list = list(range(rw.num_points))
+    plt.scatter(rw.x_point, rw.y_point, c=point_numbers_list, cmap=plt.cm.Greens, edgecolors='none', s=12)
     plt.show()
 
     running = input('Сделать ещё одно блуждание? (y/n): ')
