@@ -13,9 +13,9 @@ with open(file_name) as file:
     dates, highs, lows = [], [], []
     for row in reader:
         try:
-            current_date = datetime.strptime(row[1], '%Y-%m-%d')
-            high = int(row[2])
-            low = int(row[4])
+            current_date = datetime.strptime(row[0], '%Y-%m-%d')
+            high = int(row[1])
+            low = int(row[2])
             l_c = (low - 32) * 5 / 9
             h_c = (high - 32) * 5 / 9
         except ValueError:
