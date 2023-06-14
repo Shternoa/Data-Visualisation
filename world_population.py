@@ -2,6 +2,8 @@ import json
 from pygal_maps_world.i18n import COUNTRIES
 from countries_code import get_country_code
 from pygal_maps_world.maps import World
+from pygal.style import RotateStyle
+from pygal.style import LightColorizedStyle as LCS
 
 file_name = 'population_data.json'
 
@@ -31,13 +33,15 @@ for pop_dict in pop_data:
             print(len(ww_pop_1), len(ww_pop_2), len(ww_pop_3))
         # else:
         #     print(f'Error : {str(population)}')
-wm = World()
+
+wm_style = RotateStyle('#446699',base_style=LCS)
+wm = World(style=wm_style)
 wm.title = 'World Population in 2010, by Country'
 wm.add('0-10m', ww_pop_1)
 wm.add('10m-1bn', ww_pop_2)
 wm.add('>1bn', ww_pop_3)
 # wm.add('2010', ww_population)
-wm.render_to_file('world_population_2.svg')
+wm.render_to_file('world_population_4.svg')
 
 # for country_code in sorted(COUNTRIES.keys()):
 #     print(country_code, COUNTRIES[country_code])
