@@ -18,12 +18,26 @@ for pop_dict in pop_data:
         code = get_country_code(country_name)
         if code:
             ww_population[code] = population
+            # Группировка по уровню население
+            ww_pop_1, ww_pop_2, ww_pop_3 = {}, {}, {}
+            for ww, pop in ww_population.items():
+                if pop < 10000000:
+                    ww_pop_1[ww] = pop
+                elif pop < 1000000000:
+                    ww_pop_2[ww] = pop
+                else:
+                    ww_pop_3[ww] = pop
+            # Провеврка кол-ва странн на каждом уровне
+            print(len(ww_pop_1), len(ww_pop_2), len(ww_pop_3))
         # else:
         #     print(f'Error : {str(population)}')
 wm = World()
 wm.title = 'World Population in 2010, by Country'
-wm.add('2010', ww_population)
-wm.render_to_file('world_population.svg')
+wm.add('0-10m', ww_pop_1)
+wm.add('10m-1bn', ww_pop_2)
+wm.add('>1bn', ww_pop_3)
+# wm.add('2010', ww_population)
+wm.render_to_file('world_population_2.svg')
 
 # for country_code in sorted(COUNTRIES.keys()):
 #     print(country_code, COUNTRIES[country_code])
